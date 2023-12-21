@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
 import ToDo from '../Components/ToDo';
 import { AuthContext } from '../Firebase/AuthProvider';
-import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Dashboard = () => {
   const { user} = useContext(AuthContext);
-  console.log(user)
-
+  
   const handleAddTask = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -32,16 +31,13 @@ const Dashboard = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          toast.success('🦄 Wow so easy!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            });
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your Task has been saved",
+            showConfirmButton: false,
+            timer: 1500
+          });
         }
       });
   }
