@@ -45,6 +45,9 @@ const Dashboard = () => {
 
   return (
     <div className="mx-auto max-w-screen-lg my-5">
+      <Helmet>
+              <title>{'Task Manager || DashBoard'}</title>
+            </Helmet>
       <div className="">
         <h2 className="text-3xl  text-center border-y-4 p-3 rounded-xl border-blue-800 font-bold my-4">Add A Task</h2>
 

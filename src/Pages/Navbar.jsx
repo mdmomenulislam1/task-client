@@ -12,9 +12,9 @@ const Navbar = () => {
   }
 
   const links = <div className="flex flex-row justify-center items-center md:flex-row gap-2">
-    <li><NavLink to="/" className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Home </NavLink></li>
+    <li><NavLink to="/" className="p-5 py-1 lg:py-2 font-bold rounded-lg bg-blue-black text-white border-b-4 border-blue-800">Home </NavLink></li>
 
-    <li><NavLink to="/dashboard" className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Dashboard </NavLink></li>
+    <li><NavLink to="/dashboard" className="p-5 py-1 lg:py-2 font-bold rounded-lg bg-blue-black text-white border-b-4 border-blue-800">Dashboard </NavLink></li>
     
     
     {
@@ -22,14 +22,14 @@ const Navbar = () => {
         <div className="flex flex-row justify-center items-center ">
 
           <img src={user.photoURL} alt="" className="w-[50px] h-[50px] rounded-full m-5" />
-          <button onClick={handleSignOut} className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Log Out</button>
+          <button onClick={handleSignOut} className="p-5 py-1 lg:py-2 font-bold rounded-lg bg-blue-black text-white border-b-4 border-blue-800">Log Out</button>
         </div>
         :
         <div className="flex gap-2">
           <Link to={"/login"} className="flex ">
-            <button className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Log In</button>
+            <button className="p-5 py-1 lg:py-2 font-bold rounded-lg bg-blue-black text-white border-b-4 border-blue-800">Log In</button>
           </Link>
-          <li><NavLink to="/register" className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Register</NavLink></li>
+          <li><NavLink to="/register" className="p-5 py-1 lg:py-2 font-bold rounded-lg bg-blue-black text-white border-b-4 border-blue-800">Register</NavLink></li>
         </div>
     }
   </div>

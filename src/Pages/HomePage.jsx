@@ -8,6 +8,9 @@ import Beneficiary from '../Components/Beneficiary';
 const HomePage = () => {
   return (
     <div className="mx-auto max-w-screen-xl">
+      <Helmet>
+              <title>{'Task Manager || Home'}</title>
+            </Helmet>
       <div className="rounded-b-xl bg-[url('https://i.ibb.co/wKLSq1P/image.png')]">
         <div className="rounded-xl flex justify-between gap-3 items-center w-full bg-gradient-to-r from-cyan-500 to-gray-500 opacity-80">
         <div className="flex-1 text-white  p-10 rounded-xl" >

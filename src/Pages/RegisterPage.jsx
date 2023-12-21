@@ -85,7 +85,7 @@ const RegisterPage = () => {
             .then(res => {
               if (res.data.insertedId) {
                 console.log('user added to the database')
-                // reset();
+                
                 Swal.fire({
                   position: 'top-end',
                   icon: 'success',
@@ -113,7 +113,7 @@ const RegisterPage = () => {
       {
         user ? <div className="text-center">
           <Helmet>
-            <title>{'HRE-hub || My Profile'}</title>
+            <title>{'Task Manager || My Profile'}</title>
           </Helmet>
           <h2 className="text-3xl text-center border-y-4 p-5 rounded-xl border-blue-800 font-bold">My Information</h2>
 
@@ -124,7 +124,7 @@ const RegisterPage = () => {
         </div> :
           <div className="">
             <Helmet>
-              <title>{'HRE-hub || Registration'}</title>
+              <title>{'Task Manager || Registration'}</title>
             </Helmet>
             <h2 className="text-3xl text-center border-y-4 p-5 rounded-xl border-blue-800 font-bold">Registration Page</h2>
             <form onSubmit={handleRegister} className="border-x-4 rounded-t-lg border-pink-800 p-5">
