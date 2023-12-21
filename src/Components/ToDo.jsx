@@ -40,6 +40,7 @@ const ToDo = () => {
       taskHolderName: item.taskHolderName,
       taskHolderEmail: item.taskHolderEmail,
       deadline: item.deadline,
+      priority: item.priority,
       status: "ongoing",
       description: item.description,
     }
@@ -74,6 +75,7 @@ const ToDo = () => {
       name: item.name,
       taskHolderName: item.taskHolderName,
       taskHolderEmail: item.taskHolderEmail,
+      priority: item.priority,
       deadline: item.deadline,
       status: "completed",
       description: item.description,
@@ -169,7 +171,7 @@ const ToDo = () => {
                           item.priority === "emergency" ? <h2 className="text-2xl text-red-600"><MdOutlineEmergencyShare /></h2> : <></>
                         }
 
-{
+                        {
                           item.priority === "optional" ? <h2 className="text-2xl text-green-600"><MdOutlineEmergencyShare /></h2> : <></>
                         }
 

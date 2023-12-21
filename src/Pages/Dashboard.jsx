@@ -48,27 +48,27 @@ const Dashboard = () => {
 
 
   return (
-    <div className="mx-auto max-w-screen-lg">
+    <div className="mx-auto max-w-screen-lg my-5">
       <div className="">
         <h2 className="text-3xl  text-center border-y-4 p-3 rounded-xl border-blue-800 font-bold my-4">Add A Task</h2>
 
         <form onSubmit={handleAddTask} action="" method="post" className=" w-full text-center">
-          <div className="flex">
+          <div className="flex justify-between">
             <div className="">
-              <p className="text-black font-bold w-[200px]">Task Name</p>
+              <p className="text-black font-bold ">Task Name</p>
 
-              <input type="text" name="task_name" id="" placeholder="Task Name" required className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+              <input type="text" name="task_name" id="" placeholder="Task Name" required className="m-2 w-7/10 p-3 text-black font-semibold border rounded-lg" />
             </div>
 
 
             <div className="">
-              <p className="text-black font-bold w-[200px]">Priority Stage</p>
+              <p className="text-black font-bold ">Priority Stage</p>
 
               <select
                 name="task_priority"
                 id=""
                 required
-                className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg"
+                className="m-2 w-7/10 p-3 text-black font-semibold border rounded-lg"
               >
                 <option value="emergency">Emergency</option>
                 <option value="essential">Essential</option>
@@ -79,15 +79,15 @@ const Dashboard = () => {
 
 
             <div className="">
-              <p className=" text-black font-bold w-[200px]">Deadline</p>
-              <input type="date" name="deadlin" id="" required className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+              <p className=" text-black font-bold ">Deadline</p>
+              <input type="date" name="deadlin" id="" required className="m-2 w-7/10 p-3 text-black font-semibold border rounded-lg" />
             </div>
 
 
 
             <div className="">
-              <p className=" text-black font-bold w-[200px]">Task Description</p>
-              <input type="text" name="task_description" id="" required placeholder="Task Description" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+              <p className=" text-black font-bold ">Task Description</p>
+              <input type="text" name="task_description" id="" required placeholder="Task Description" className="m-2 w-7/10 p-3 text-black font-semibold border rounded-lg" />
             </div>
 
             <br />
