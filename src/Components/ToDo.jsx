@@ -149,7 +149,7 @@ const ToDo = () => {
     <div className="grid grid-cols-3 gap-5">
 
       <div className="border-2 rounded-xl p-5  border-blue-600 ">
-        <h2 className='font-bold text-yellow-600 text-2xl'>To-Do Task List</h2>
+        <h2 className='font-bold text-blue-600 text-2xl'>To-Do Task List</h2>
         {
           toDo.length !== 0 ?
             <div >
@@ -163,7 +163,7 @@ const ToDo = () => {
                       <h2 className="font-bold text-[20px]">{index + 1}.</h2>
                       <h2 className="font-bold text-[20px]">{item.name}</h2>
                       <h2 className="font-bold text-[20px]">{
-                        item.priority === "essential" ? <h2 className="text-2xl text-yellow-600"><MdOutlineEmergencyShare /></h2> : <></>
+                        item.priority === "essential" ? <h2 className="text-2xl text-blue-600"><MdOutlineEmergencyShare /></h2> : <></>
                       }
 
 
@@ -180,7 +180,7 @@ const ToDo = () => {
                     <p className="text-justify font-semibold">{item.description}</p>
                     <p className="font-bold text-xl">Deadline {item.deadline}</p>
 
-                    <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-yellow-600 text-white" onClick={() => handleOnGoing(item)}><CiBookmark /> </button>
+                    <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-blue-600 text-white" onClick={() => handleOnGoing(item)}><CiBookmark /> </button>
                     <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-green-600 text-white" onClick={() => handleComplete(item)}><IoCheckmarkDoneSharp /></button>
                     <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-red-600 text-white" onClick={() => handleDelete(item)}><MdDeleteForever /></button>
                   </div>
@@ -195,7 +195,7 @@ const ToDo = () => {
 
 
       <div className="border-2 rounded-xl p-5  border-blue-600 ">
-        <h2 className='font-bold text-yellow-600 text-2xl'>Ongoing Task List</h2>
+        <h2 className='font-bold text-blue-600 text-2xl'>Ongoing Task List</h2>
         {
           onGoing.length !== 0 ?
             <div >
@@ -231,7 +231,7 @@ const ToDo = () => {
 
 
       <div className="border-2 rounded-xl p-5  border-blue-600 ">
-        <h2 className='font-bold text-yellow-600 text-2xl'>Completed Task List</h2>
+        <h2 className='font-bold text-blue-600 text-2xl'>Completed Task List</h2>
         {
           completed.length !== 0 ?
             <div >

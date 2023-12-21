@@ -3,6 +3,7 @@ import ToDo from '../Components/ToDo';
 import { AuthContext } from '../Firebase/AuthProvider';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
+import { Helmet } from 'react-helmet';
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -46,8 +47,8 @@ const Dashboard = () => {
   return (
     <div className="mx-auto max-w-screen-lg my-5">
       <Helmet>
-              <title>{'Task Manager || DashBoard'}</title>
-            </Helmet>
+        <title>{'Task Manager || DashBoard'}</title>
+      </Helmet>
       <div className="">
         <h2 className="text-3xl  text-center border-y-4 p-3 rounded-xl border-blue-800 font-bold my-4">Add A Task</h2>
 
@@ -106,7 +107,7 @@ const Dashboard = () => {
 
             <br />
           </div>
-          <button className=" bg-yellow-600 hover:bg-yellow-800 w-full p-3 text-white font-bold border rounded-lg" type="submit">
+          <button className=" bg-blue-600 hover:bg-blue-800 w-full p-3 text-white font-bold border rounded-lg" type="submit">
             Add Task
           </button>
         </form>
