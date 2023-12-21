@@ -7,7 +7,7 @@ import Beneficiary from '../Components/Beneficiary';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="mx-auto max-w-screen-xl">
       <div className="rounded-b-xl bg-[url('https://i.ibb.co/wKLSq1P/image.png')]">
         <div className="rounded-xl flex justify-between gap-3 items-center w-full bg-gradient-to-r from-cyan-500 to-gray-500 opacity-80">
         <div className="flex-1 text-white  p-10 rounded-xl" >
@@ -33,7 +33,7 @@ const HomePage = () => {
 
 
             <Link to={"/dashboard"}>
-            <button data-aos="fade-left" className="btn font-bold bg-blue-900 text-white mx-10"> <MdOutlineDataExploration />  Lets Explore</button>
+            <button data-aos="fade-left" className="btn font-bold bg-blue-900 text-2xl text-white mx-5"> <MdOutlineDataExploration  />  Let's Explore</button>
             </Link>
           </div>
         </div>
