@@ -4,21 +4,22 @@ import { AuthContext } from '../Firebase/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Dashboard = () => {
-  const { user} = useContext(AuthContext);
-  
+  const { user } = useContext(AuthContext);
+
   const handleAddTask = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.task_name.value;
+    const priority = form.task_priority.value;
     const taskHolderName = user?.displayName;
     const taskHolderEmail = user?.email;
     const deadline = form.deadlin.value;
     const status = "to-do";
     const description = form.task_description.value;
 
-    console.log(name, taskHolderName, taskHolderEmail, deadline, status, description);
+    console.log(name, priority, taskHolderName,  taskHolderEmail, deadline, status, description);
     const taskData = {
-      name, taskHolderName, taskHolderEmail, deadline, status, description
+      name, priority, taskHolderName, taskHolderEmail, deadline, status, description
     }
     fetch('http://localhost:5000/toDo', {
       method: "POST",
@@ -49,7 +50,7 @@ const Dashboard = () => {
   return (
     <div className="mx-auto max-w-screen-lg">
       <div className="">
-      <h2 className="text-3xl  text-center border-y-4 p-3 rounded-xl border-blue-800 font-bold my-4">Add A Task</h2>
+        <h2 className="text-3xl  text-center border-y-4 p-3 rounded-xl border-blue-800 font-bold my-4">Add A Task</h2>
 
         <form onSubmit={handleAddTask} action="" method="post" className=" w-full text-center">
           <div className="flex">
@@ -57,6 +58,23 @@ const Dashboard = () => {
               <p className="text-black font-bold w-[200px]">Task Name</p>
 
               <input type="text" name="task_name" id="" placeholder="Task Name" required className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
+            </div>
+
+
+            <div className="">
+              <p className="text-black font-bold w-[200px]">Priority Stage</p>
+
+              <select
+                name="task_priority"
+                id=""
+                required
+                className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg"
+              >
+                <option value="emergency">Emergency</option>
+                <option value="essential">Essential</option>
+                <option value="optional">Optional</option>
+              </select>
+
             </div>
 
 
@@ -83,7 +101,7 @@ const Dashboard = () => {
         <h2 className="text-3xl  text-center border-y-4 p-3 rounded-xl border-blue-800 font-bold my-4">Tasks</h2>
         <ToDo />
       </div>
-      
+
 
     </div>
   );

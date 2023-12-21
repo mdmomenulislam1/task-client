@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { MdDeleteForever } from "react-icons/md";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { CiBookmark } from "react-icons/ci";
+import { MdOutlineEmergencyShare } from "react-icons/md";
 
 const ToDo = () => {
   const { user } = useContext(AuthContext);
@@ -144,21 +145,35 @@ const ToDo = () => {
 
   return (
     <div className="grid grid-cols-3 gap-5">
-     
+
       <div className="border-2 rounded-xl p-5  border-blue-600 ">
         <h2 className='font-bold text-yellow-600 text-2xl'>To-Do Task List</h2>
         {
           toDo.length !== 0 ?
             <div >
               {
-                toDo?.map((item,index) =>
+                toDo?.map((item, index) =>
                   <div item={item}
                     key={item._id}
-                    
+
                     className="p-2">
                     <div className="flex items-center gap-2">
-                    <h2 className="font-bold text-[20px]">{index + 1}.</h2>
-                    <h2 className="font-bold text-[20px]">{item.name}</h2>
+                      <h2 className="font-bold text-[20px]">{index + 1}.</h2>
+                      <h2 className="font-bold text-[20px]">{item.name}</h2>
+                      <h2 className="font-bold text-[20px]">{
+                        item.priority === "essential" ? <h2 className="text-2xl text-yellow-600"><MdOutlineEmergencyShare /></h2> : <></>
+                      }
+
+
+                        {
+                          item.priority === "emergency" ? <h2 className="text-2xl text-red-600"><MdOutlineEmergencyShare /></h2> : <></>
+                        }
+
+{
+                          item.priority === "optional" ? <h2 className="text-2xl text-green-600"><MdOutlineEmergencyShare /></h2> : <></>
+                        }
+
+                      </h2>
                     </div>
                     <p className="text-justify font-semibold">{item.description}</p>
                     <p className="font-bold text-xl">Deadline {item.deadline}</p>
@@ -183,19 +198,19 @@ const ToDo = () => {
           onGoing.length !== 0 ?
             <div >
               {
-                onGoing?.map((item,index) =>
+                onGoing?.map((item, index) =>
                   <div item={item}
                     key={item._id}
-                    
+
                     className="p-2">
                     <div className="flex items-center gap-2">
-                    <h2 className="font-bold text-[20px]">{index + 1}.</h2>
-                    <h2 className="font-bold text-[20px]">{item.name}</h2>
+                      <h2 className="font-bold text-[20px]">{index + 1}.</h2>
+                      <h2 className="font-bold text-[20px]">{item.name}</h2>
                     </div>
                     <p className="text-justify font-semibold">{item.description}</p>
                     <p className="font-bold text-xl">Deadline {item.deadline}</p>
 
-                    
+
                     <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-green-600 text-white" onClick={() => handleComplete(item)}><IoCheckmarkDoneSharp /></button>
                     <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-red-600 text-white" onClick={() => handleDelete(item)}><MdDeleteForever /></button>
                   </div>
@@ -207,7 +222,7 @@ const ToDo = () => {
         }
       </div>
 
-      
+
 
 
 
@@ -219,15 +234,18 @@ const ToDo = () => {
           completed.length !== 0 ?
             <div >
               {
-                completed?.map((item,index) =>
+                completed?.map((item, index) =>
                   <div item={item}
                     key={item._id}
-                    
+
                     className="p-2">
                     <div className="flex items-center gap-2">
-                    <h2 className="font-bold text-[20px]">{index + 1}.</h2>
-                    <h2 className="font-bold text-[20px]">{item.name}</h2>
+                      <h2 className="font-bold text-[20px]">{index + 1}.</h2>
+                      <h2 className="font-bold text-[20px]">{item.name}</h2>
+
                     </div>
+
+
                     <p className="text-justify font-semibold">{item.description}</p>
                     <p className="font-bold text-xl">Deadline {item.deadline}</p>
 
