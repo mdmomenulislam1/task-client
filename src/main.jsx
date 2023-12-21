@@ -13,6 +13,7 @@ import RegisterPage from './Pages/RegisterPage.jsx';
 import AuthProvider from './Firebase/AuthProvider.jsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Dashboard from './Pages/Dashboard.jsx';
+import PrivateRoute from './FireBase/PrivateRoute.jsx';
 
 const queryClient = new QueryClient();
 
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard/>
+        element: <PrivateRoute><Dashboard/></PrivateRoute>
       }
     ]
   },
