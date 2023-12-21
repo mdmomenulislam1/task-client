@@ -13,20 +13,13 @@ const Navbar = () => {
 
   const links = <div className="flex flex-row justify-center items-center md:flex-row gap-2">
     <li><NavLink to="/" className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Home </NavLink></li>
+
+    <li><NavLink to="/dashboard" className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Dashboard </NavLink></li>
     
     
     {
       user ?
         <div className="flex flex-row justify-center items-center ">
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">My Profile</label>
-
-            <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-              <li> <NavLink to="/addTask" className="px-5 mb-2 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Add Task</NavLink></li>
-              <li> <NavLink to="/addedTasks" className="px-5 mb-2 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">My Added Tasks</NavLink></li>
-              
-            </ul>
-          </div>
 
           <img src={user.photoURL} alt="" className="w-[50px] h-[50px] rounded-full m-5" />
           <button onClick={handleSignOut} className="px-5 py-1 lg:py-2 font-bold rounded-full bg-red-900 text-white">Log Out</button>
