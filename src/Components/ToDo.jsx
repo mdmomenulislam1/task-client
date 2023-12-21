@@ -2,9 +2,11 @@ import axios from 'axios';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../Firebase/AuthProvider';
 import Swal from 'sweetalert2';
+import { MdDeleteForever } from "react-icons/md";
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
+import { CiBookmark } from "react-icons/ci";
 
 const ToDo = () => {
-  // const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [completed, setCompleted] = useState([]);
   const [toDo, setToDo] = useState([]);
@@ -52,7 +54,7 @@ const ToDo = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          
+
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -87,7 +89,7 @@ const ToDo = () => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          
+
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -119,7 +121,7 @@ const ToDo = () => {
           .then((response) => response.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-             
+
               Swal.fire({
                 title: "Deleted!",
                 text: `${item.name} is deleted`,
@@ -139,83 +141,103 @@ const ToDo = () => {
       }
     });
   };
-  
-
-  
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-      {/* Todo List */}
-      <div>
-        <h2>To-Do Task List</h2>
+    <div className="grid grid-cols-3 gap-5">
+     
+      <div className="border-2 rounded-xl p-5  border-blue-600 ">
+        <h2 className='font-bold text-yellow-600 text-2xl'>To-Do Task List</h2>
         {
           toDo.length !== 0 ?
             <div >
               {
-                toDo?.map(item =>
+                toDo?.map((item,index) =>
                   <div item={item}
                     key={item._id}
+                    
                     className="p-2">
-                    <h2>{item.name}</h2>
-                    <p className="text-justify">{item.description}</p>
-                    <p>{item.deadline}</p>
+                    <div className="flex items-center gap-2">
+                    <h2 className="font-bold text-[20px]">{index + 1}.</h2>
+                    <h2 className="font-bold text-[20px]">{item.name}</h2>
+                    </div>
+                    <p className="text-justify font-semibold">{item.description}</p>
+                    <p className="font-bold text-xl">Deadline {item.deadline}</p>
 
-                    <button onClick={() => handleOnGoing(item)}>On Going</button>
-                    <button onClick={() => handleComplete(item)}>Completed</button>
-                    <button onClick={() => handleDelete(item)}>Delete</button>
+                    <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-yellow-600 text-white" onClick={() => handleOnGoing(item)}><CiBookmark /> </button>
+                    <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-green-600 text-white" onClick={() => handleComplete(item)}><IoCheckmarkDoneSharp /></button>
+                    <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-red-600 text-white" onClick={() => handleDelete(item)}><MdDeleteForever /></button>
                   </div>
                 )
               }
             </div>
             :
-            <h2 className="text-3xl text-center text-red-800 font-bold">No To-Do Task Available</h2>
+            <h2 className="text-2xl text-center text-red-800 font-bold">No To-Do Task</h2>
         }
       </div>
 
 
 
-
-
-      <div>
-
-        <h2>Ongoing List</h2>
+      <div className="border-2 rounded-xl p-5  border-blue-600 ">
+        <h2 className='font-bold text-yellow-600 text-2xl'>Ongoing Task List</h2>
         {
           onGoing.length !== 0 ?
             <div >
               {
-                onGoing?.map(item =>
+                onGoing?.map((item,index) =>
                   <div item={item}
-                    key={item._id}>
-                    <h2>{item.name}</h2>
+                    key={item._id}
+                    
+                    className="p-2">
+                    <div className="flex items-center gap-2">
+                    <h2 className="font-bold text-[20px]">{index + 1}.</h2>
+                    <h2 className="font-bold text-[20px]">{item.name}</h2>
+                    </div>
+                    <p className="text-justify font-semibold">{item.description}</p>
+                    <p className="font-bold text-xl">Deadline {item.deadline}</p>
+
+                    
+                    <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-green-600 text-white" onClick={() => handleComplete(item)}><IoCheckmarkDoneSharp /></button>
+                    <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-red-600 text-white" onClick={() => handleDelete(item)}><MdDeleteForever /></button>
                   </div>
                 )
               }
             </div>
             :
-            <h2 className="text-3xl text-center text-red-800 font-bold">No Ongoing Task Available</h2>
+            <h2 className="text-2xl text-center text-red-800 font-bold">No To-Do Task</h2>
         }
       </div>
 
+      
 
 
 
 
-      <div>
-        <h2>Completed Task List</h2>
+
+      <div className="border-2 rounded-xl p-5  border-blue-600 ">
+        <h2 className='font-bold text-yellow-600 text-2xl'>Completed Task List</h2>
         {
           completed.length !== 0 ?
             <div >
               {
-                completed?.map(item =>
+                completed?.map((item,index) =>
                   <div item={item}
-                    key={item._id}>
-                    <h2>{item.name}</h2>
+                    key={item._id}
+                    
+                    className="p-2">
+                    <div className="flex items-center gap-2">
+                    <h2 className="font-bold text-[20px]">{index + 1}.</h2>
+                    <h2 className="font-bold text-[20px]">{item.name}</h2>
+                    </div>
+                    <p className="text-justify font-semibold">{item.description}</p>
+                    <p className="font-bold text-xl">Deadline {item.deadline}</p>
+
+                    <button className="text-lg font-bold px-3 m-2 py-1 rounded-lg bg-red-600 text-white" onClick={() => handleDelete(item)}><MdDeleteForever /></button>
                   </div>
                 )
               }
             </div>
             :
-            <h2 className="text-3xl text-center text-red-800 font-bold">No Task Available</h2>
+            <h2 className="text-2xl text-center text-red-800 font-bold">No To-Do Task</h2>
         }
       </div>
 

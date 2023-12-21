@@ -36,7 +36,7 @@ const Dashboard = () => {
             icon: "success",
             title: "Your Task has been saved",
             showConfirmButton: false,
-            timer: 1500
+            timer: 1000
           });
         }
       });
@@ -47,40 +47,43 @@ const Dashboard = () => {
 
 
   return (
-    <div className="flex">
-      <div>
-        <h2>Tasks</h2>
-        <ToDo />
-      </div>
-      <div className="w-[400px]">
-        <h2 className="text-2xl">Add A Task</h2>
+    <div className="mx-auto max-w-screen-lg">
+      <div className="">
+      <h2 className="text-3xl  text-center border-y-4 p-3 rounded-xl border-blue-800 font-bold my-4">Add A Task</h2>
 
-        <form onSubmit={handleAddTask} action="" method="post" className="w-full text-center">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="flex justify-center items-center w-full">
+        <form onSubmit={handleAddTask} action="" method="post" className=" w-full text-center">
+          <div className="flex">
+            <div className="">
               <p className="text-black font-bold w-[200px]">Task Name</p>
 
               <input type="text" name="task_name" id="" placeholder="Task Name" required className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
             </div>
 
 
-            <div className="flex justify-center items-center w-full">
+            <div className="">
               <p className=" text-black font-bold w-[200px]">Deadline</p>
               <input type="date" name="deadlin" id="" required className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
             </div>
 
 
 
-            <div className="flex justify-center items-center w-full">
+            <div className="">
               <p className=" text-black font-bold w-[200px]">Task Description</p>
               <input type="text" name="task_description" id="" required placeholder="Task Description" className="m-3 w-3/4 p-3 text-black font-semibold border rounded-lg" />
             </div>
 
             <br />
           </div>
-          <button className=" bg-yellow-600 hover:bg-yellow-800 m-3 w-3/4 p-3 text-white font-bold border rounded-lg" type="submit">Add Task</button>
+          <button className=" bg-yellow-600 hover:bg-yellow-800 w-full p-3 text-white font-bold border rounded-lg" type="submit">Add Task</button>
         </form>
       </div>
+
+
+      <div>
+        <h2 className="text-3xl  text-center border-y-4 p-3 rounded-xl border-blue-800 font-bold my-4">Tasks</h2>
+        <ToDo />
+      </div>
+      
 
     </div>
   );
